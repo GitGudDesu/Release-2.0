@@ -37,7 +37,7 @@ public class DeathMenu : MonoBehaviour {
     }
 
     public void Restart() {
-		SceneManager.LoadScene("Menu");
+		SceneManager.LoadScene("Game");
 		//direct db connection to where the db is stored in app
 		//and open connection
 		const string connectionString = "URI=file:Assets\\Plugins\\MumboJumbos.db";

@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - Input
   - collectible
+  - butterfly
   layers:
   - Default
   - TransparentFX
