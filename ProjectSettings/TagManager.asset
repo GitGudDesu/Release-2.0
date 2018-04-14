@@ -9,6 +9,7 @@ TagManager:
   - Input
   - collectible
   - butterfly
+  - Diff
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ public class CoinPick : MonoBehaviour {
 	static UnityEngine.Random _random = new UnityEngine.Random();
 
 	//string thingys
-	public ArrayList wordList = new ArrayList();
+	public  static ArrayList wordList = new ArrayList();
 	public static String currentWord;
 	public String letter;
 	public static int wordArrayIndex = 0;
@@ -32,37 +32,95 @@ public class CoinPick : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start()
-	{
-		//direct db connection to where the db is stored in app
-		//and open connection
-		const string connectionString = "URI=file:Assets\\Plugins\\MumboJumbos.db";
-		IDbConnection dbcon = new SqliteConnection(connectionString);
-		dbcon.Open();
+	void Start() {
+    }
 
-		//create query for user name
-		IDbCommand dbcmd = dbcon.CreateCommand();
-		const string sql =
-			"SELECT * " +
-			"FROM wordList";
-		dbcmd.CommandText = sql;
-		IDataReader reader = dbcmd.ExecuteReader();
+     public static void EasyMode()
+    {
+        //gameObject.SetActive(false);
+        //direct db connection to where the db is stored in app
+        //and open connection
+        const string connectionString = "URI=file:Assets\\Plugins\\MumboJumbos.db";
+        IDbConnection dbcon = new SqliteConnection(connectionString);
+        dbcon.Open();
 
-		while (reader.Read())
-		{
-			string currentWord = reader.GetString(2);
+        //create query for user name
+        IDbCommand dbcmd = dbcon.CreateCommand();
+        const string sql =
+            "SELECT * " +
+            "FROM wordList";
+        dbcmd.CommandText = sql;
+        IDataReader reader = dbcmd.ExecuteReader();
 
-			Debug.Log(currentWord);
+        while (reader.Read())
+        {
+            string currentWord = reader.GetString(2);
 
-			wordList.Add(currentWord);
-		}
+            Debug.Log(currentWord);
 
+            wordList.Add(currentWord);
+        }
+       
+    }
 
+    public static void MediumMode()
+    {
+        //gameObject.SetActive(false);
+        //direct db connection to where the db is stored in app
+        //and open connection
+        const string connectionString = "URI=file:Assets\\Plugins\\MumboJumbos.db";
+        IDbConnection dbcon = new SqliteConnection(connectionString);
+        dbcon.Open();
 
-	}
+        //create query for user name
+        IDbCommand dbcmd = dbcon.CreateCommand();
+        const string sql =
+            "SELECT * " +
+            "FROM wordListM";
+        dbcmd.CommandText = sql;
+        IDataReader reader = dbcmd.ExecuteReader();
 
-	// Update is called once per frame
-	void Update() {
+        while (reader.Read())
+        {
+            string currentWord = reader.GetString(2);
+
+            Debug.Log(currentWord);
+
+            wordList.Add(currentWord);
+        }
+
+    }
+
+    public static void HardMode()
+    {
+        //gameObject.SetActive(false);
+        //direct db connection to where the db is stored in app
+        //and open connection
+        const string connectionString = "URI=file:Assets\\Plugins\\MumboJumbos.db";
+        IDbConnection dbcon = new SqliteConnection(connectionString);
+        dbcon.Open();
+
+        //create query for user name
+        IDbCommand dbcmd = dbcon.CreateCommand();
+        const string sql =
+            "SELECT * " +
+            "FROM wordListH";
+        dbcmd.CommandText = sql;
+        IDataReader reader = dbcmd.ExecuteReader();
+
+        while (reader.Read())
+        {
+            string currentWord = reader.GetString(2);
+
+            Debug.Log(currentWord);
+
+            wordList.Add(currentWord);
+        }
+
+    }
+
+    // Update is called once per frame
+    void Update() {
 		coins = GameObject.FindGameObjectsWithTag("Coin");
 		if (currentLetterIndex == 0) {
 			wordText.text = currentWord;
@@ -112,6 +170,8 @@ public class CoinPick : MonoBehaviour {
 			}
 		}
 	}
+
+
 
 	public static String getCurrentLetter()
 	{

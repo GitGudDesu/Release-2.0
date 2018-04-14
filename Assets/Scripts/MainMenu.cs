@@ -17,6 +17,19 @@ public class MainMenu : MonoBehaviour {
 
     public void ToGame()
     {
+        CoinPick.EasyMode();
+        SceneManager.LoadScene("Game");
+    }
+
+    public void ToGameMedium()
+    {
+        CoinPick.MediumMode();
+        SceneManager.LoadScene("Game");
+    }
+
+    public void ToGameHard()
+    {
+        CoinPick.HardMode();
         SceneManager.LoadScene("Game");
     }
 }
