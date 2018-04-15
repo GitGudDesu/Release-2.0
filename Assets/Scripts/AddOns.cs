@@ -25,9 +25,14 @@ public class AddOns : MonoBehaviour {
         }
     }
 
-	
-	// Update is called once per frame
-	void Update () {
+    public void OnClick2()
+    {
+        butt.SetActive(false);
+    }
+
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 

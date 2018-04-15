@@ -107,8 +107,10 @@ public class CharacterControl : MonoBehaviour
         if (hit.point.z > transform.position.z + 0.1f && hit.gameObject.tag == "collectible") {
             Destroy(hit.gameObject);
             ScoreforCoin.CoinScore++;
-            //coins = (float)FindData("student", "Coin", "StuID", SubmitName.getStuID());
-            //tCoins = ScoreforCoin.CoinScore;
+            if (GameObject.FindGameObjectWithTag("butterfly").transform.localScale == new Vector3(1, 1, 1))
+            {
+                ScoreforCoin.CoinScore = ScoreforCoin.CoinScore + 2;
+            }
             DBSaveLoad.UpdateData("student", "StuID", SubmitName.getStuID(), "Coin", ScoreforCoin.CoinScore);
             
         }
@@ -147,8 +149,8 @@ public class CharacterControl : MonoBehaviour
 					//this if statement checks to see how fast a player spelled a word
 					//if fast enough we give them a score bonus
 					if ((CoinPick.wordEndCount - CoinPick.wordStartCount) <= (CoinPick.currentWord.Length + 1)) {
-						Score.score = Score.score + 5;
-					}
+						Score.score = Score.score + 10;
+                    }
 				}
 				//increment letter index and return out of method
 				return;

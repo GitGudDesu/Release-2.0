@@ -10,6 +10,7 @@ TagManager:
   - collectible
   - butterfly
   - Diff
+  - BronzeBadge
   layers:
   - Default
   - TransparentFX
